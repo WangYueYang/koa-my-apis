@@ -1,0 +1,21 @@
+{
+  "name": "koa-all-api",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "wangyueyang",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=development nodemon --exec 'babel-node ./app.js'"
+  },
+  "dependencies": {
+    "koa": "^2.13.4",
+    "mongodb": "^4.2.1",
+    "mongoose": "^6.0.14"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "nodemon": "^2.0.15"
+  }
+}
