@@ -14,6 +14,7 @@ const initController = (app) => {
   router.post('/api/findBook', apiBookListController.actionFindBook);
   router.post('/api/addBook', apiBookListController.actionAddBook);
   router.post('/api/updateBook', apiBookListController.actionUpdateBook);
+  router.post('/api/deleteBook',apiBookListController.actionDeleteBook);
 
   app.use(router.routes()).use(router.allowedMethods());
 }

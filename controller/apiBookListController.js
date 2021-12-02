@@ -71,7 +71,7 @@ class ApiBookListController extends Controller {
   // 修改图书
   async actionUpdateBook(ctx) {
     const {id, updateObj} = ctx.request.body;
-    console.log(updateObj, 'update')
+
     const res = await BooksBlog.updateMany({
       _id: id
     }, updateObj);
@@ -86,6 +86,25 @@ class ApiBookListController extends Controller {
     };
 
   }
+
+  // 删除图书
+  async actionDeleteBook(ctx) {
+    const {id} = ctx.request.body;
+    
+    const res = await BooksBlog.deleteMany({_id: id});
+
+    const {
+      response
+    } = ctx;
+
+    ctx.body = {
+      response,
+      res
+    }; 
+
+  }
+
+
 
 }
 
