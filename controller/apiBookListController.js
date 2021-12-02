@@ -18,8 +18,6 @@ class ApiBookListController extends Controller {
     super();
   }
 
-
-
   // 获取图书列表
   async actionGetBookList(ctx) {
 
