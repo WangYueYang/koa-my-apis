@@ -19,18 +19,18 @@ const booksSchema = new Schema({
 
 
 // 创建一个model
-const BooksBlog = mongoose.model('BookList', booksSchema);
+export const BooksBlog = mongoose.model('BookList', booksSchema);
 
-const addBooks = new BooksBlog({
-  name: 'JavaScript',
-  price: 123,
-  author: 'wang',
-  describe: '一段对书本的描述'
-});
+// const addBooks = new BooksBlog({
+//   name: 'JavaScript',
+//   price: 123,
+//   author: 'wang',
+//   describe: '一段对书本的描述' 
+// });
 
-addBooks.save((err, res) => {
-  if (err) return console.log(err);
-  console.log('成功', res);
-})
+// addBooks.save((err, res) => {
+//   if (err) return console.log(err);
+//   console.log('成功', res);
+// })
 
 export default mongoose;
