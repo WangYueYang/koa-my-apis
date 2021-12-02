@@ -30,7 +30,7 @@ router.get('/api/getBookList', async (ctx, next) => {
 
 // 修改 之前的 update 被 updateMany 代替了， updateOne 如果查询到多条结果，只更新第一条记录。 upateMany 更新查询到的所有结果。 bulkWrite 提供可控执行顺序的批量写操作。 
 // updateMany({},{}) 第一个参数是查询条件，第二个是修改的内容
-router.get('/api/changeBookList', async (ctx, next) => {
+router.get('/api/updateBookList', async (ctx, next) => {
   await BooksBlog.updateMany({
     _id: '61a874b214fb1a9df24345f6'
   }, {
