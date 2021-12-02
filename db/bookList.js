@@ -19,7 +19,7 @@ const booksSchema = new Schema({
 
 
 // 创建一个model
-export const BooksBlog = mongoose.model('BookList', booksSchema);
+const BooksBlog = mongoose.model('BookList', booksSchema);
 
 // const addBooks = new BooksBlog({
 //   name: 'JavaScript',
@@ -32,5 +32,3 @@ export const BooksBlog = mongoose.model('BookList', booksSchema);
 //   if (err) return console.log(err);
 //   console.log('成功', res);
 // })
-
-export default mongoose;

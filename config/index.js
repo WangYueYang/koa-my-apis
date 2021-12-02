@@ -1,6 +1,5 @@
 
-const config = {
-  port: 3000
-}
-
-export default config;
+export default {
+  port: 3000,
+  dbUrl: `mongodb://127.0.0.1:27017/test`
+};

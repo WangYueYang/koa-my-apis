@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "koa": "^2.13.4",
+    "koa-body-parser": "^1.1.2",
     "koa-router": "^10.1.1",
     "mongodb": "^4.2.1",
     "mongoose": "^6.0.14"
