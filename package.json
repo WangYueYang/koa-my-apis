@@ -5,10 +5,12 @@
   "author": "wangyueyang",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development nodemon --exec 'babel-node ./app.js'"
+    "addBook": "NODE_ENV=development babel-node ./db/bookList.js",
+    "start": "babel-node ./app.js"
   },
   "dependencies": {
     "koa": "^2.13.4",
+    "koa-router": "^10.1.1",
     "mongodb": "^4.2.1",
     "mongoose": "^6.0.14"
   },
