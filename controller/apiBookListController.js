@@ -1,21 +1,30 @@
 import Controller from "./controller";
 import BooksBlog from "../models/bookListModel";
 
+const responseDate = (ctx, res) => {
+  const {
+    response
+  } = ctx;
+
+  return ctx.body = {
+    response,
+    res
+  };
+}
+
 
 class ApiBookListController extends Controller {
   constructor() {
     super();
   }
 
+
+
   // 获取图书列表
   async actionGetBookList(ctx) {
 
-    const res = await BooksBlog.find({})
-
-    ctx.body = {
-      response: ctx.response,
-      list: res
-    }
+    const res = await BooksBlog.find({});
+    ctx.body = responseDate(ctx, res);
   }
 
   // 根据 name 书名查找
@@ -29,14 +38,7 @@ class ApiBookListController extends Controller {
       name
     });
 
-    const {
-      response
-    } = ctx;
-
-    ctx.body = {
-      response,
-      res
-    };
+    ctx.body = responseDate(ctx, res);
   }
 
   // 添加图书
@@ -57,50 +59,37 @@ class ApiBookListController extends Controller {
 
     const res = await addBook.save();
 
-    const {
-      response
-    } = ctx;
-
-    ctx.body = {
-      response,
-      res
-    };
+    ctx.body = responseDate(ctx, res);
 
   }
 
   // 修改图书
   async actionUpdateBook(ctx) {
-    const {id, updateObj} = ctx.request.body;
+    const {
+      id,
+      updateObj
+    } = ctx.request.body;
 
     const res = await BooksBlog.updateMany({
       _id: id
     }, updateObj);
 
-    const {
-      response
-    } = ctx;
 
-    ctx.body = {
-      response,
-      res
-    };
+    ctx.body = responseDate(ctx, res);
 
   }
 
   // 删除图书
   async actionDeleteBook(ctx) {
-    const {id} = ctx.request.body;
-    
-    const res = await BooksBlog.deleteMany({_id: id});
-
     const {
-      response
-    } = ctx;
+      id
+    } = ctx.request.body;
 
-    ctx.body = {
-      response,
-      res
-    }; 
+    const res = await BooksBlog.deleteMany({
+      _id: id
+    });
+
+    ctx.body = responseDate(ctx, res);
 
   }
 

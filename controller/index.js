@@ -1,5 +1,6 @@
 import Router from 'koa-router';
 import ApiBookListController from './apiBookListController';
+import newApi from '../config/apiUrl';
 
 const router = new Router();
 const apiBookListController = new ApiBookListController();
@@ -8,13 +9,14 @@ const initController = (app) => {
 
   router.get('/', ctx => {
     ctx.body = 'koa controller router'
-  })
-  
-  router.get('/api/getBookList', apiBookListController.actionGetBookList);
-  router.post('/api/findBook', apiBookListController.actionFindBook);
-  router.post('/api/addBook', apiBookListController.actionAddBook);
-  router.post('/api/updateBook', apiBookListController.actionUpdateBook);
-  router.post('/api/deleteBook',apiBookListController.actionDeleteBook);
+  });
+
+
+  router.get(newApi.getBookList, apiBookListController.actionGetBookList);
+  router.post(newApi.findBook, apiBookListController.actionFindBook);
+  router.post(newApi.addBook, apiBookListController.actionAddBook);
+  router.post(newApi.updateBook, apiBookListController.actionUpdateBook);
+  router.post(newApi.deleteBook,apiBookListController.actionDeleteBook);
 
   app.use(router.routes()).use(router.allowedMethods());
 }
