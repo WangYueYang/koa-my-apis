@@ -1,5 +1,6 @@
 import Controller from "./controller";
 import MarkdownModel from '../models/mdModel';
+import { readFile } from 'fs/promises';
 
 class ApiMdController extends Controller {
   constructor() {
@@ -11,14 +12,28 @@ class ApiMdController extends Controller {
   // 会报错 Error: bad content-type header, no multipart boundary
   async actionUploadFiles(ctx) {
 
-    const uploadFile = new MarkdownModel({
-      files: ctx.request.files
-    })
+    // const uploadFile = new MarkdownModel({
+    //   files: ctx.request.files
+    // })
     
-    const res = await uploadFile.save();
+    // const res = await uploadFile.save();
+
+    try {
+
+      // 这里通过 fs 读取到 .md 的文件内容，默认是 buffer，加 utf-8 编码
+      const promise = readFile(ctx.request.files.file.path, 'utf-8')
+
+      const res = await promise;
+      ctx.body = {
+        time: +new Date(),
+        content: res
+      };
+    } catch(e) {
+      console.log(e)
+    }
 
 
-    ctx.body = ctx.request.files;
+
   }
 
   async actionGetMdFiles(ctx) {

@@ -16,13 +16,13 @@
       .then(res => res.json())
       .then(data => {
         const file = data[0].files;
-        const read = new FileReader();
+        const read = new FileReader(file.file);
+        console.log(file, 'file', read)
+        
         read.onload = function() {
-          console.log(this.result)
-          document.body.innerHTML = this.result;
+          console.log(this.result, 'load')
         }
 
-        read.readAsText(file);
       });
   </script>
 </body>
