@@ -5,7 +5,9 @@ const apis = {
   findBook: '/findBook',
   addBook: '/addBook',
   updateBook: '/updateBook',
-  deleteBook: '/deleteBook'
+  deleteBook: '/deleteBook',
+  uploadMdFiles: '/uploadMdFiles',
+  getMdFiles: '/getMdFiles'
 }
 
 const newApi = {};

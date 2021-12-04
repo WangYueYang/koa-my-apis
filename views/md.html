@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  get Md Files
+
+  <script>
+    fetch('http://localhost:3000/api/getMdFiles')
+      .then(res => res.json())
+      .then(data => {
+        const file = data[0].files;
+        const read = new FileReader();
+        read.onload = function() {
+          console.log(this.result)
+          document.body.innerHTML = this.result;
+        }
+
+        read.readAsText(file);
+      });
+  </script>
+</body>
+
+</html>

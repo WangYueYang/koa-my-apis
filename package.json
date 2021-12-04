@@ -6,10 +6,11 @@
   "license": "MIT",
   "scripts": {
     "addBook": "NODE_ENV=development babel-node ./db/bookList.js",
-    "start": "babel-node ./app.js"
+    "start": "NODE_ENV=development nodemon --exec 'babel-node ./app.js'"
   },
   "dependencies": {
     "koa": "^2.13.4",
+    "koa-body": "^4.2.0",
     "koa-body-parser": "^1.1.2",
     "koa-router": "^10.1.1",
     "mongodb": "^4.2.1",
